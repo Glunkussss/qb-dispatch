@@ -1,0 +1,33 @@
+QBCore = nil 
+
+TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
+
+RegisterServerEvent("glunkus_dispatch:sendAlert")
+AddEventHandler("glunkus_dispatch:sendAlert", function(text, coords, id)
+    TriggerClientEvent("glunkus_dispatch:alertToClient", -1, text, coords, id)
+end)
+
+RegisterServerEvent("glunkus_dispatch:sendAmbuAlert")
+AddEventHandler("glunkus_dispatch:sendAmbuAlert", function(text, coords, id)
+    TriggerClientEvent("glunkus_dispatch:auxToClient", -1, text, coords, id)
+end)
+
+RegisterServerEvent("glunkus_dispatch:sendMecaAlert")
+AddEventHandler("glunkus_dispatch:sendMecaAlert", function(text, coords, id)
+    TriggerClientEvent("glunkus_dispatch:mecaToClient", -1, text, coords, id)
+end)
+
+RegisterServerEvent("glunkus_dispatch:sendVehRob")
+AddEventHandler("glunkus_dispatch:sendVehRob", function(coords, model, color, id)
+    TriggerClientEvent("glunkus_dispatch:vehToClient", -1, coords, model, color, id)
+end)
+
+RegisterServerEvent("glunkus_dispatch:sendTaxiaAlert")
+AddEventHandler("glunkus_dispatch:sendTaxiaAlert", function(text, coords, id)
+    TriggerClientEvent("glunkus_dispatch:taxiToClient", -1, text, coords, id)
+end)
+
+RegisterServerEvent("glunkus_dispatch:sendRobaAlert")
+AddEventHandler("glunkus_dispatch:sendRobaAlert", function(type, coords, id)
+    TriggerClientEvent("glunkus_dispatch:robberyToClient", -1, type, coords, id)
+end)
